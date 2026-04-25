@@ -5,13 +5,7 @@ require_login()  # Prüft, ob eingeloggt; sonst zeigt Login-Form
 
 st.set_page_config(page_title="Wochenplaner – Happahappa", page_icon="📅", layout="centered", initial_sidebar_state="collapsed")
 
-from utils.styles import apply_styles
-from utils.db import (
-    get_all_recipes, get_week_plan,
-    set_week_plan_entry, remove_week_plan_entry,
-    add_recipe_to_shopping_list, WEEKDAYS
-)
-
+from utils.styles import apply_styles, nav_bar
 apply_styles()
 
 st.markdown("""
@@ -96,13 +90,4 @@ else:
     st.info("Noch keine Rezepte geplant. Wähle oben Rezepte für die Woche aus.")
 
 # Bottom navigation
-st.markdown('<div class="bottom-nav">', unsafe_allow_html=True)
-if st.button("🏠 Home", key="nav_home"):
-    st.switch_page("app.py")
-if st.button("📖 Rezepte", key="nav_rezepte"):
-    st.switch_page("pages/1_Rezepte.py")
-if st.button("📅 Wochenplaner", key="nav_wochenplaner"):
-    st.switch_page("pages/2_Wochenplaner.py")
-if st.button("🛒 Einkauf", key="nav_einkauf"):
-    st.switch_page("pages/3_Einkaufsliste.py")
-st.markdown('</div>', unsafe_allow_html=True)
+nav_bar("Planer")

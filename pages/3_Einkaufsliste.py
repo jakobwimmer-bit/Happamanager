@@ -5,14 +5,14 @@ require_login()  # Prüft, ob eingeloggt; sonst zeigt Login-Form
 
 st.set_page_config(page_title="Einkaufsliste – Happahappa", page_icon="🛒", layout="centered", initial_sidebar_state="collapsed")
 
-from utils.styles import apply_styles
+from utils.styles import apply_styles, nav_bar
+apply_styles()
+
 from utils.db import (
     get_shopping_list, add_manual_item,
     toggle_shopping_item, remove_shopping_item,
     clear_checked_items, clear_all_shopping_list
 )
-
-apply_styles()
 
 CATEGORIES = [
     "Gemüse & Obst", "Fleisch & Fisch", "Milchprodukte & Eier",
@@ -148,13 +148,6 @@ else:
                     st.rerun()
 
 # Bottom navigation
-st.markdown('<div class="bottom-nav">', unsafe_allow_html=True)
-if st.button("🏠 Home", key="nav_home"):
-    st.switch_page("app.py")
-if st.button("📖 Rezepte", key="nav_rezepte"):
-    st.switch_page("pages/1_Rezepte.py")
-if st.button("📅 Wochenplaner", key="nav_wochenplaner"):
-    st.switch_page("pages/2_Wochenplaner.py")
-if st.button("🛒 Einkauf", key="nav_einkauf"):
-    st.switch_page("pages/3_Einkaufsliste.py")
+nav_bar("Einkauf")
+
 st.markdown('</div>', unsafe_allow_html=True)

@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-from utils.styles import apply_styles
+from utils.styles import apply_styles, nav_bar
 apply_styles()
 
 st.markdown("""
@@ -24,15 +24,8 @@ st.markdown("""
 st.markdown("---")
 
 # Bottom navigation
-st.markdown('<div class="bottom-nav">', unsafe_allow_html=True)
-if st.button("🏠 Home", key="nav_home"):
-    st.switch_page("app.py")
-if st.button("📖 Rezepte", key="nav_rezepte"):
-    st.switch_page("pages/1_Rezepte.py")
-if st.button("📅 Wochenplaner", key="nav_wochenplaner"):
-    st.switch_page("pages/2_Wochenplaner.py")
-if st.button("🛒 Einkauf", key="nav_einkauf"):
-    st.switch_page("pages/3_Einkaufsliste.py")
+nav_bar("Start")
+
 st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("""
