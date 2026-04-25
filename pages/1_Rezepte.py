@@ -1,4 +1,7 @@
 import streamlit as st
+from utils.auth import require_login, logout_user
+
+require_login()  # Prüft, ob eingeloggt; sonst zeigt Login-Form
 
 st.set_page_config(page_title="Rezepte – Happahappa", page_icon="📖", layout="centered", initial_sidebar_state="collapsed")
 

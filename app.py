@@ -1,4 +1,7 @@
 import streamlit as st
+from utils.auth import require_login, logout_user
+
+require_login()  # Prüft, ob eingeloggt; sonst zeigt Login-Form
 
 st.set_page_config(
     page_title="Happahappamanager",
@@ -38,3 +41,7 @@ st.markdown("""
     <p>Guten Appetit! 😋</p>
 </div>
 """, unsafe_allow_html=True)
+
+# Optional: Logout-Button hinzufügen
+if st.button("Logout"):
+    logout_user()

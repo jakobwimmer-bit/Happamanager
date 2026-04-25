@@ -240,11 +240,13 @@ def apply_styles():
         font-family: 'Nunito', sans-serif !important;
         font-size: 1rem !important;
         background: var(--card-bg) !important;
+        color: var(--text) !important;  /* Added to ensure text is dark */
     }
     .stTextInput > div > div > input:focus,
     .stTextArea > div > div > textarea:focus {
         border-color: var(--primary) !important;
         box-shadow: 0 0 0 2px rgba(255,107,53,0.15) !important;
+        color: var(--text) !important;  /* Ensure focused text is also dark */
     }
 
     /* ── Expander ── */
