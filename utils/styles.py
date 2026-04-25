@@ -240,13 +240,24 @@ def apply_styles():
         font-family: 'Nunito', sans-serif !important;
         font-size: 1rem !important;
         background: var(--card-bg) !important;
-        color: var(--text) !important;  /* Added to ensure text is dark */
+        color: var(--text) !important;
     }
     .stTextInput > div > div > input:focus,
     .stTextArea > div > div > textarea:focus {
         border-color: var(--primary) !important;
         box-shadow: 0 0 0 2px rgba(255,107,53,0.15) !important;
-        color: var(--text) !important;  /* Ensure focused text is also dark */
+        color: var(--text) !important;
+    }
+
+    /* Labels for inputs */
+    .stTextInput label,
+    .stTextArea label,
+    .stNumberInput label,
+    .stSelectbox label,
+    .stMultiselect label,
+    .stRadio label,
+    .stCheckbox label {
+        color: var(--text) !important;
     }
 
     /* ── Expander ── */
@@ -280,13 +291,18 @@ def apply_styles():
         left: 0;
         right: 0;
         background: var(--card-bg);
-        border-top: 2px solid var(--border);
+        border-top: 1px solid var(--border);
+        padding: 10px;
         display: flex;
         justify-content: space-around;
-        align-items: center;
-        padding: 0.5rem 0 calc(0.5rem + env(safe-area-inset-bottom));
-        z-index: 999;
-        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+        z-index: 1000;
+    }
+    .bottom-nav .stButton button {
+        background: none !important;
+        border: none !important;
+        color: var(--text) !important;
+        font-size: 1.2rem !important;
+        padding: 10px !important;
     }
     .nav-btn {
         display: flex;
@@ -357,6 +373,20 @@ def apply_styles():
         background: var(--primary) !important;
         color: white !important;
     }
+
+    /* Markdown text */
+    .stMarkdown p,
+    .stMarkdown strong,
+    .stMarkdown em,
+    .stMarkdown h1,
+    .stMarkdown h2,
+    .stMarkdown h3,
+    .stMarkdown h4,
+    .stMarkdown h5,
+    .stMarkdown h6 {
+        color: var(--text) !important;
+    }
+
     </style>
     """, unsafe_allow_html=True)
 

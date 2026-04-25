@@ -23,18 +23,23 @@ st.markdown("""
 
 st.markdown("---")
 
-col1, col2 = st.columns(2)
-
-with col1:
-    if st.button("📖\n\nRezepte", use_container_width=True, key="nav_rezepte"):
-        st.switch_page("pages/1_Rezepte.py")
-
-    if st.button("📅\n\nWochenplaner", use_container_width=True, key="nav_wochenplaner"):
-        st.switch_page("pages/2_Wochenplaner.py")
-
-with col2:
-    if st.button("🛒\n\nEinkaufsliste", use_container_width=True, key="nav_einkauf"):
-        st.switch_page("pages/3_Einkaufsliste.py")
+# Bottom navigation
+with st.container():
+    st.markdown('<div class="bottom-nav">', unsafe_allow_html=True)
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        if st.button("🏠 Home", key="nav_home"):
+            st.switch_page("app.py")
+    with col2:
+        if st.button("📖 Rezepte", key="nav_rezepte"):
+            st.switch_page("pages/1_Rezepte.py")
+    with col3:
+        if st.button("📅 Wochenplaner", key="nav_wochenplaner"):
+            st.switch_page("pages/2_Wochenplaner.py")
+    with col4:
+        if st.button("🛒 Einkauf", key="nav_einkauf"):
+            st.switch_page("pages/3_Einkaufsliste.py")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("""
 <div class="home-footer">
