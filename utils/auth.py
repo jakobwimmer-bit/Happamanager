@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 from utils.supabase_client import get_supabase
 
 def login_user(email: str, password: str):
@@ -28,22 +27,13 @@ def require_login():
         email = st.text_input("E-Mail", key="login_email")
         password = st.text_input("Passwort", type="password", key="login_password")
         
-        # Debug: Werte anzeigen
-        if email:
-            st.session_state["login_email"] = email
-        if password:
-            st.session_state["login_password"] = password
-        
         col1, col2 = st.columns(2)
         with col1:
             if st.button("Einloggen", use_container_width=True):
-                email_val = st.session_state.get("login_email", "")
-                password_val = st.session_state.get("login_password", "")
-                
-                if email_val and password_val:
-                    login_user(email_val, password_val)
+                if email and password:
+                    login_user(email, password)
                 else:
-                    st.error(f"Bitte E-Mail und Passwort eingeben (Email: {email_val}, Pass: {password_val})")
+                    st.error("Bitte E-Mail und Passwort eingeben")
         
         st.stop()
 
