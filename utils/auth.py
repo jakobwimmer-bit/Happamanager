@@ -23,15 +23,17 @@ def is_logged_in():
 def require_login():
     if not is_logged_in():
         st.title("Login")
-        email = st.text_input("E-Mail")
-        password = st.text_input("Passwort", type="password")
         
-        # Auto-login wenn beide Felder gefüllt sind
-        if email and password:
-            login_user(email, password)
+        email = st.text_input("E-Mail", key="login_email")
+        password = st.text_input("Passwort", type="password", key="login_password")
         
-        if st.button("Einloggen"):
-            login_user(email, password)
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("Einloggen", use_container_width=True):
+                if email and password:
+                    login_user(email, password)
+                else:
+                    st.error("Bitte E-Mail und Passwort eingeben")
         
         st.stop()
 
