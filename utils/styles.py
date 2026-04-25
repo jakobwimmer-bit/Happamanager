@@ -310,6 +310,27 @@ def apply_styles():
         width: 100% !important;
     }
 
+    /* Bottom navigation columns */
+    .stHorizontalBlock {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: var(--card-bg) !important;
+        border-top: 1px solid var(--border) !important;
+        padding: 10px !important;
+        z-index: 1000 !important;
+        display: flex !important;
+        justify-content: space-around !important;
+    }
+    .stHorizontalBlock .stButton button {
+        background: none !important;
+        border: none !important;
+        color: var(--text) !important;
+        font-size: 1.2rem !important;
+        padding: 10px !important;
+    }
+
     /* Bottom navigation buttons */
     .bottom-nav-buttons {
         display: flex;
