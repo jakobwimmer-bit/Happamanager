@@ -90,4 +90,18 @@ else:
     st.info("Noch keine Rezepte geplant. Wähle oben Rezepte für die Woche aus.")
 
 # Bottom navigation
-nav_bar("Planer")
+st.markdown('<div class="bottom-nav-buttons">', unsafe_allow_html=True)
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    if st.button("🏠 Start", key="nav_start"):
+        st.switch_page("app.py")
+with col2:
+    if st.button("📖 Rezepte", key="nav_rezepte"):
+        st.switch_page("pages/1_Rezepte.py")
+with col3:
+    if st.button("📅 Planer", key="nav_planer"):
+        st.switch_page("pages/2_Wochenplaner.py")
+with col4:
+    if st.button("🛒 Einkauf", key="nav_einkauf"):
+        st.switch_page("pages/3_Einkaufsliste.py")
+st.markdown('</div>', unsafe_allow_html=True)

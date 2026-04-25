@@ -309,6 +309,28 @@ def apply_styles():
         padding: 10px !important;
         width: 100% !important;
     }
+
+    /* Bottom navigation buttons */
+    .bottom-nav-buttons {
+        display: flex;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        border-top: 1px solid var(--border);
+        padding: 10px;
+        z-index: 1000;
+    }
+    .bottom-nav-buttons .stButton button {
+        background: none !important;
+        border: none !important;
+        color: var(--text) !important;
+        font-size: 1.2rem !important;
+        padding: 10px !important;
+    }
+
     .nav-btn {
         display: flex;
         flex-direction: column;
