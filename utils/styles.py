@@ -297,12 +297,17 @@ def apply_styles():
         justify-content: space-around;
         z-index: 1000;
     }
+    .bottom-nav .stButton {
+        flex: 1;
+        text-align: center;
+    }
     .bottom-nav .stButton button {
         background: none !important;
         border: none !important;
         color: var(--text) !important;
         font-size: 1.2rem !important;
         padding: 10px !important;
+        width: 100% !important;
     }
     .nav-btn {
         display: flex;
