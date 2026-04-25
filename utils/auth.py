@@ -20,20 +20,14 @@ def logout_user():
 def is_logged_in():
     return "user" in st.session_state and st.session_state["user"] is not None
 
-def _on_email_change():
-    st.session_state["email_changed"] = True
-
-def _on_password_change():
-    st.session_state["password_changed"] = True
-
 def require_login():
     if not is_logged_in():
         st.title("Login")
-        email = st.text_input("E-Mail", on_change=_on_email_change)
-        password = st.text_input("Passwort", type="password", on_change=_on_password_change)
+        email = st.text_input("E-Mail")
+        password = st.text_input("Passwort", type="password")
         
         # Auto-login wenn beide Felder gefüllt sind
-        if email and password and st.session_state.get("email_changed") and st.session_state.get("password_changed"):
+        if email and password:
             login_user(email, password)
         
         if st.button("Einloggen"):
